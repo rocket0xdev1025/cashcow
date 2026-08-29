@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASH COW | $CASHCOW — The Bovine Money Printer</title>
+  <meta name="description" content="The bovine money printer on cash cow. HODL tight and watch the cash flow. $CASHCOW on Robinhood Chain." />
+  <meta name="theme-color" content="#0b1f12" />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <meta property="og:title" content="CASH COW | $CASHCOW" />
+  <meta property="og:description" content="The bovine money printer on cash cow. HODL tight and watch the cash flow." />
+  <meta property="og:image" content="banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="banner.jpg" />
+  <link rel="preload" as="image" href="banner.jpg" />
+  <link rel="preload" as="image" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { 950: '#06140c', 900: '#0b1f12', 800: '#14301c', 700: '#1c4226', 600: '#2a5a34' },
+            moss: { 400: '#86b85f', 500: '#5a8f45', 600: '#3d6b3a' },
+            gold: { 200: '#f6e7b2', 300: '#f3e0a0', 400: '#e8c45a', 500: '#d4a017', 700: '#8a6a10' },
+            cream: { 50: '#fbf7ec', 100: '#f4ead3', 200: '#e6d5b0', 300: '#d4bc8a' },
+            ink: '#14110e',
+            nose: '#e09a8c'
+          },
+          fontFamily: {
+            display: ['"Lilita One"', 'cursive'],
+            body: ['Nunito', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            stamp: '0 18px 40px rgba(0,0,0,.45)',
+            gold: '0 8px 24px rgba(212,160,23,.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { background: #06140c; }
+    body { font-family: Nunito, ui-sans-serif, system-ui, sans-serif; color: #f4ead3; }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #06140c; }
+    ::-webkit-scrollbar-thumb { background: #3d6b3a; border-radius: 99px; border: 2px solid #06140c; }
+
+    .cow-frame {
+      background-color: #14110e;
+      background-image:
+        radial-gradient(ellipse 42px 28px at 14% 22%, #fbf7ec 0 46%, transparent 48%),
+        radial-gradient(ellipse 56px 34px at 78% 16%, #fbf7ec 0 44%, transparent 46%),
+        radial-gradient(ellipse 34px 24px at 48% 78%, #fbf7ec 0 46%, transparent 48%),
+        radial-gradient(ellipse 28px 20px at 88% 68%, #fbf7ec 0 46%, transparent 48%),
+        radial-gradient(ellipse 22px 16px at 8% 72%, #fbf7ec 0 48%, transparent 50%),
+        radial-gradient(ellipse 36px 22px at 62% 48%, #fbf7ec 0 40%, transparent 42%);
+    }
+
+    .parchment {
+      background:
+        radial-gradient(1200px 400px at 10% -10%, rgba(232,196,90,.18), transparent 55%),
+        linear-gradient(180deg, #fbf7ec 0%, #f3ead0 100%);
+      color: #14110e;
+    }
+
+    .wood-sign {
+      background:
+        repeating-linear-gradient(90deg, rgba(80,50,20,.07) 0 2px, transparent 2px 22px),
+        linear-gradient(180deg, #e9d4a8, #c9a36e 58%, #b08950);
+      border: 3px solid #6b4423;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 0 #4a2e14, 0 18px 28px rgba(0,0,0,.35);
+      color: #14110e;
+    }
+
+    .btn-buy {
+      background: linear-gradient(180deg, #f3e0a0 0%, #e8c45a 42%, #d4a017 100%);
+      color: #14110e;
+      font-family: "Lilita One", cursive;
+      letter-spacing: .04em;
+      box-shadow: 0 5px 0 #8a6a10, 0 12px 24px rgba(212,160,23,.32);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-buy::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+      transform: translateX(-120%);
+      animation: shine 3.8s ease-in-out infinite;
+    }
+    .btn-buy:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .btn-buy:active { transform: translateY(3px); box-shadow: 0 1px 0 #8a6a10; }
+
+    .btn-chart {
+      background: rgba(251,247,236,.1);
+      border: 2px solid #e6d5b0;
+      color: #fbf7ec;
+      font-family: "Lilita One", cursive;
+      letter-spacing: .04em;
+      backdrop-filter: blur(10px);
+    }
+    .btn-chart:hover { background: rgba(251,247,236,.2); transform: translateY(-2px); }
+
+    .grain::before {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      opacity: .09;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    .sun-rays {
+      background: conic-gradient(from 200deg at 50% 18%, transparent 0 8%, rgba(243,224,160,.16) 10%, transparent 13%, rgba(243,224,160,.1) 16%, transparent 20%);
+      animation: rays 22s linear infinite;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 5px; height: 5px;
+      border-radius: 999px;
+      background: #f3e0a0;
+      box-shadow: 0 0 10px 4px rgba(232,196,90,.7);
+      animation: floaty 7s ease-in-out infinite;
+      opacity: .7;
+    }
+
+    .bill {
+      position: absolute;
+      font-size: 1.4rem;
+      animation: drift 11s linear infinite;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,.35));
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 2.5rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .nav-glass {
+      background: rgba(6,20,12,.28);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232,196,90,.12);
+    }
+    .nav-glass.scrolled {
+      background: rgba(6,20,12,.88);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    #toast {
+      transform: translateX(-50%) translateY(120%);
+      transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s;
+      opacity: 0;
+    }
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .hoof-line {
+      background-image: radial-gradient(circle at 50% 50%, #e8c45a 1.5px, transparent 2px);
+      background-size: 18px 8px;
+      background-repeat: repeat-x;
+      background-position: center;
+    }
+
+    @keyframes shine {
+      0%, 55% { transform: translateX(-120%); }
+      75% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+    @keyframes rays { to { transform: rotate(360deg); } }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) scale(1); opacity: .35; }
+      50% { transform: translateY(-18px) scale(1.4); opacity: .95; }
+    }
+    @keyframes drift {
+      0% { transform: translateY(0) rotate(-8deg); opacity: 0; }
+      12% { opacity: .9; }
+      100% { transform: translateY(-110vh) rotate(18deg); opacity: 0; }
+    }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .bob { animation: bob 3.6s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sun-rays, .firefly, .bill, .marquee-track, .bob, .btn-buy::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="font-body antialiased overflow-x-hidden">
+
+  <div id="toast" class="fixed bottom-24 left-1/2 z-[80] parchment cow-frame p-1 rounded-2xl shadow-stamp">
+    <div class="bg-cream-50 text-ink font-extrabold px-5 py-3 rounded-xl text-sm" data-toast-msg>Copied.</div>
+  </div>
+
+  <!-- NAV -->
+  <header id="nav" class="nav-glass fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 min-w-0">
+        <img src="logo.png" alt="cash cow logo" class="w-11 h-11 rounded-xl object-cover ring-2 ring-gold-400/80 shadow-md" />
+        <div class="leading-none">
+          <div class="font-display text-xl tracking-wide text-cream-50">CASH COW</div>
+          <div class="text-[10px] font-extrabold tracking-[0.22em] text-gold-400">$CASHCOW</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-extrabold text-cream-100">
+        <a href="#about" class="hover:text-gold-400 transition">The Printer</a>
+        <a href="#buy" class="hover:text-gold-400 transition">How to Buy</a>
+        <a href="#chart" class="hover:text-gold-400 transition">Chart</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <button type="button" onclick="copyCA()" class="hidden xl:inline-flex items-center gap-2 rounded-full bg-ink/60 border border-cream-200/20 px-3 py-2 text-xs font-extrabold text-cream-100 hover:border-gold-400/60 transition">
+          <span class="text-gold-400">CA</span>
+          <span class="font-mono tracking-wider" data-ca>0xb0bb214ec6c6c600d224c781339309a95f8e4811</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <a href="https://x.com/cashcowrobin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-cream-50 p-2 hover:scale-105 transition" aria-label="Cash Cow on X">
+          <img src="x.png" alt="" class="w-full h-full object-contain" />
+        </a>
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy rounded-full px-5 py-2.5 text-sm">Buy Now</a>
+      </div>
+
+      <button id="menuBtn" type="button" class="lg:hidden w-11 h-11 rounded-xl border border-cream-200/25 bg-ink/40 flex items-center justify-center" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-gold-400/15 bg-forest-950/95 backdrop-blur-xl">
+      <div class="px-5 py-5 flex flex-col gap-3 font-extrabold">
+        <a href="#about" class="py-2">The Printer</a>
+        <a href="#buy" class="py-2">How to Buy</a>
+        <a href="#chart" class="py-2">Chart</a>
+        <button type="button" onclick="copyCA()" class="text-left py-2">Copy CA · <span data-ca class="font-mono text-gold-400">0xb0bb214ec6c6c600d224c781339309a95f8e4811</span></button>
+        <a href="https://x.com/cashcowrobin" target="_blank" rel="noopener noreferrer" class="py-2 flex items-center gap-2">
+          <img src="x.png" alt="" class="w-5 h-5 bg-cream-50 rounded-full p-0.5" /> Follow on X
+        </a>
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy rounded-full px-5 py-3 text-center mt-1">Buy Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="relative min-h-[100svh] flex items-end md:items-center overflow-hidden grain">
+      <img src="banner.jpg" alt="cash cow sitting in a sunlit moss forest" class="absolute inset-0 w-full h-full object-cover object-[center_62%]" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-b from-forest-950/70 via-forest-950/25 to-forest-950"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-transparent to-forest-950/55"></div>
+      <div class="sun-rays absolute -top-1/3 left-1/2 -translate-x-1/2 w-[140vw] h-[140vw] pointer-events-none opacity-70"></div>
+
+      <span class="firefly" style="left:12%; top:28%; animation-delay:.2s"></span>
+      <span class="firefly" style="left:78%; top:22%; animation-delay:1.1s"></span>
+      <span class="firefly" style="left:22%; top:58%; animation-delay:2.4s"></span>
+      <span class="firefly" style="left:88%; top:48%; animation-delay:3s"></span>
+      <span class="firefly" style="left:64%; top:70%; animation-delay:1.8s"></span>
+      <span class="firefly" style="left:40%; top:18%; animation-delay:4.2s"></span>
+
+      <span class="bill" style="left:8%; bottom:-10%; animation-delay:0s">💵</span>
+      <span class="bill" style="left:22%; bottom:-20%; animation-delay:2.2s">💵</span>
+      <span class="bill" style="left:70%; bottom:-8%; animation-delay:1.1s">💵</span>
+      <span class="bill" style="left:86%; bottom:-18%; animation-delay:3.4s">💵</span>
+      <span class="bill" style="left:48%; bottom:-14%; animation-delay:4.6s">💵</span>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 md:py-32">
+        <div class="max-w-xl mx-auto md:mx-0">
+          <div class="cow-frame rounded-[2rem] p-[10px] shadow-stamp">
+            <div class="parchment rounded-[1.45rem] px-6 sm:px-8 pt-16 pb-7 text-center md:text-left relative">
+              <button type="button" onclick="moo()" class="bob absolute -top-14 left-1/2 md:left-8 -translate-x-1/2 md:translate-x-0 cow-frame p-1 rounded-2xl shadow-stamp" aria-label="Moo">
+                <img src="logo.png" alt="cash cow" class="w-[88px] h-[88px] rounded-xl object-cover bg-white" />
+              </button>
+
+              <div class="inline-flex items-center gap-2 rounded-full bg-ink text-cream-50 text-[10px] font-extrabold tracking-[0.2em] uppercase px-3 py-1 mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                Robinhood Chain · ETH
+              </div>
+
+              <h1 class="font-display text-5xl sm:text-6xl leading-[0.9] text-ink">CASH COW</h1>
+              <p class="mt-1 font-display text-2xl text-moss-600 tracking-wide">$CASHCOW</p>
+              <p class="mt-4 text-[17px] leading-relaxed text-ink/80 font-semibold">
+                The bovine money printer on cash cow.<br class="hidden sm:block" />
+                HODL tight and watch the cash flow.
+              </p>
+
+              <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy rounded-full px-7 py-3.5 text-lg text-center">Buy Now</a>
+                <a href="https://dexscreener.com/robinhood/0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-chart rounded-full px-7 py-3.5 text-lg text-center !text-ink border-ink/20 bg-white/40">Chart</a>
+              </div>
+
+              <div class="mt-5 flex items-center justify-center md:justify-start">
+                <button type="button" onclick="copyCA()" class="group w-full sm:w-auto inline-flex items-center justify-between gap-3 rounded-2xl bg-ink text-cream-50 px-4 py-3 border border-white/10 hover:border-gold-400/50 transition">
+                  <span class="text-[10px] font-extrabold tracking-[0.18em] text-gold-400">CONTRACT</span>
+                  <span class="font-mono text-sm tracking-wider" data-ca>0xb0bb214ec6c6c600d224c781339309a95f8e4811</span>
+                  <span class="inline-flex items-center gap-1 text-xs font-extrabold text-cream-100 group-hover:text-gold-400">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"/></svg>
+                    Copy
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg class="absolute bottom-0 left-0 w-full text-forest-950" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="currentColor" d="M0,40 C180,90 360,0 540,40 C720,80 900,10 1080,45 C1260,80 1380,20 1440,40 L1440,90 L0,90 Z"/>
+      </svg>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="bg-ink text-cream-50 border-y-4 border-gold-400 overflow-hidden">
+      <div class="marquee-track py-3 font-display tracking-wide text-lg sm:text-xl">
+        <span>🐄 CASH COW</span><span>$CASHCOW</span><span>BOVINE MONEY PRINTER</span><span>HODL TIGHT</span><span>WATCH THE CASH FLOW</span><span>ROBINHOOD ETH</span><span>MOO TO THE MOON</span>
+        <span>🐄 CASH COW</span><span>$CASHCOW</span><span>BOVINE MONEY PRINTER</span><span>HODL TIGHT</span><span>WATCH THE CASH FLOW</span><span>ROBINHOOD ETH</span><span>MOO TO THE MOON</span>
+      </div>
+    </div>
+
+    <!-- ABOUT / PRINTER -->
+    <section id="about" class="relative bg-forest-950 py-20 sm:py-28">
+      <div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image:url('banner.jpg'); background-size:cover; background-position:center; filter:blur(8px);"></div>
+      <div class="absolute inset-0 bg-forest-950/80"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="cow-frame rounded-[2rem] p-[10px] shadow-stamp order-2 lg:order-1">
+            <img src="printer.jpg" alt="cash cow beside a brass money printer in the forest" class="w-full rounded-[1.45rem] object-cover aspect-[16/10]" />
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <p class="font-extrabold tracking-[0.28em] text-gold-400 text-xs uppercase">The pasture mint</p>
+            <h2 class="font-display text-4xl sm:text-5xl mt-2 leading-none">The bovine money printer.</h2>
+            <p class="mt-5 text-cream-100/85 text-lg leading-relaxed">
+              This is not a farm. It is a forest mint with hooves. One calf. One job. Print.
+              $CASHCOW lives on Robinhood Chain. You bring Robinhood ETH. The cow does the rest.
+              HODL tight and watch the cash flow.
+            </p>
+
+            <div class="mt-8 grid sm:grid-cols-2 gap-3">
+              <div class="wood-sign rounded-2xl p-4">
+                <div class="font-display text-xl">The Cow</div>
+                <p class="text-sm font-semibold mt-1 opacity-80">Mascot of the moss. Community first. Moo second.</p>
+              </div>
+              <div class="wood-sign rounded-2xl p-4">
+                <div class="font-display text-xl">The Printer</div>
+                <p class="text-sm font-semibold mt-1 opacity-80">$CASHCOW in. Cash flow out. Forest never sleeps.</p>
+              </div>
+              <div class="wood-sign rounded-2xl p-4">
+                <div class="font-display text-xl">The Fuel</div>
+                <p class="text-sm font-semibold mt-1 opacity-80">Robinhood ETH on chain 4663. That’s the trough.</p>
+              </div>
+              <div class="wood-sign rounded-2xl p-4">
+                <div class="font-display text-xl">The Herd</div>
+                <p class="text-sm font-semibold mt-1 opacity-80">HODL tight. No paper hooves. Follow the calf.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="rounded-2xl border border-gold-400/20 bg-forest-900/70 p-4 text-center">
+            <div class="text-[10px] tracking-[0.2em] font-extrabold text-gold-400">NAME</div>
+            <div class="font-display text-2xl mt-1">cash cow</div>
+          </div>
+          <div class="rounded-2xl border border-gold-400/20 bg-forest-900/70 p-4 text-center">
+            <div class="text-[10px] tracking-[0.2em] font-extrabold text-gold-400">SYMBOL</div>
+            <div class="font-display text-2xl mt-1">CASHCOW</div>
+          </div>
+          <div class="rounded-2xl border border-gold-400/20 bg-forest-900/70 p-4 text-center">
+            <div class="text-[10px] tracking-[0.2em] font-extrabold text-gold-400">CHAIN</div>
+            <div class="font-display text-2xl mt-1">Robinhood</div>
+          </div>
+          <div class="rounded-2xl border border-gold-400/20 bg-forest-900/70 p-4 text-center">
+            <div class="text-[10px] tracking-[0.2em] font-extrabold text-gold-400">QUOTE</div>
+            <div class="font-display text-2xl mt-1">ETH</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section id="buy" class="relative bg-forest-900 py-20 sm:py-28 overflow-hidden">
+      <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-forest-950 to-transparent pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <p class="font-extrabold tracking-[0.28em] text-gold-400 text-xs uppercase">Trail to the trough</p>
+          <h2 class="font-display text-4xl sm:text-6xl mt-2 leading-none">How to Buy $CASHCOW</h2>
+          <p class="mt-4 text-cream-100/80 text-lg">Four steps. Robinhood ETH in. Bovine money printer out.</p>
+        </div>
+
+        <div class="relative mt-14">
+          <div class="hidden xl:block absolute top-[46%] left-[8%] right-[8%] h-2 hoof-line opacity-70"></div>
+
+          <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 relative">
+            <!-- 1 -->
+            <article class="cow-frame rounded-[1.8rem] p-[9px] shadow-stamp">
+              <div class="bg-cream-50 text-ink rounded-[1.3rem] overflow-hidden h-full flex flex-col">
+                <div class="relative">
+                  <img src="step-1-wallet.jpg" alt="calf with a leather wallet in the forest" class="w-full aspect-square object-cover" />
+                  <span class="absolute top-3 left-3 w-11 h-11 rounded-full bg-ink text-gold-400 font-display text-xl flex items-center justify-center ring-2 ring-gold-400">1</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col">
+                  <h3 class="font-display text-2xl leading-none">Build the barn</h3>
+                  <p class="text-xs font-extrabold tracking-[0.16em] text-moss-600 uppercase mt-1">Create a wallet</p>
+                  <p class="mt-3 text-sm leading-relaxed text-ink/75 font-semibold">
+                    Grab Robinhood Wallet (chain is built in) or MetaMask / Rabby. Add Robinhood Chain so the calf can find you.
+                  </p>
+                  <dl class="mt-4 text-[11px] font-mono bg-ink text-cream-100 rounded-xl p-3 space-y-1">
+                    <div class="flex justify-between gap-2"><dt class="text-gold-400">Network</dt><dd>Robinhood Chain</dd></div>
+                    <div class="flex justify-between gap-2"><dt class="text-gold-400">Chain ID</dt><dd>4663</dd></div>
+                    <div class="flex justify-between gap-2 items-center">
+                      <dt class="text-gold-400">RPC</dt>
+                      <dd class="truncate max-w-[9.5rem]">rpc.mainnet.chain.robinhood.com</dd>
+                    </div>
+                    <div class="flex justify-between gap-2"><dt class="text-gold-400">Gas</dt><dd>ETH</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="cow-frame rounded-[1.8rem] p-[9px] shadow-stamp">
+              <div class="bg-cream-50 text-ink rounded-[1.3rem] overflow-hidden h-full flex flex-col">
+                <div class="relative">
+                  <img src="step-2-eth.jpg" alt="calf with glowing Ethereum crystals and gold coins" class="w-full aspect-square object-cover" />
+                  <span class="absolute top-3 left-3 w-11 h-11 rounded-full bg-ink text-gold-400 font-display text-xl flex items-center justify-center ring-2 ring-gold-400">2</span>
+                </div>
+                <div class="p-5 flex-1">
+                  <h3 class="font-display text-2xl leading-none">Fill the trough</h3>
+                  <p class="text-xs font-extrabold tracking-[0.16em] text-moss-600 uppercase mt-1">Get Robinhood ETH</p>
+                  <p class="mt-3 text-sm leading-relaxed text-ink/75 font-semibold">
+                    Bridge ETH onto Robinhood Chain. That is Robinhood ETH — gas for the trail and fuel for the swap. No ETH on this chain, no $CASHCOW.
+                  </p>
+                  <p class="mt-4 text-xs font-bold text-ink/60">Bridge from Ethereum via Uniswap or the Arbitrum portal, then confirm the balance on Robinhood Chain.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="cow-frame rounded-[1.8rem] p-[9px] shadow-stamp">
+              <div class="bg-cream-50 text-ink rounded-[1.3rem] overflow-hidden h-full flex flex-col">
+                <div class="relative">
+                  <img src="step-3-gate.jpg" alt="calf at a wooden forest gate with glowing swap arrows" class="w-full aspect-square object-cover" />
+                  <span class="absolute top-3 left-3 w-11 h-11 rounded-full bg-ink text-gold-400 font-display text-xl flex items-center justify-center ring-2 ring-gold-400">3</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col">
+                  <h3 class="font-display text-2xl leading-none">Open the gate</h3>
+                  <p class="text-xs font-extrabold tracking-[0.16em] text-moss-600 uppercase mt-1">Uniswap on Robinhood</p>
+                  <p class="mt-3 text-sm leading-relaxed text-ink/75 font-semibold">
+                    Open Uniswap, connect the wallet, switch to Robinhood Chain. Paste the $CASHCOW contract. Never buy from ticker search alone.
+                  </p>
+                  <button type="button" onclick="copyCA()" class="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-ink text-cream-50 px-4 py-2.5 text-sm font-extrabold hover:bg-forest-800">
+                    Copy CA · <span class="font-mono text-gold-400" data-ca>0xb0bb214ec6c6c600d224c781339309a95f8e4811</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="cow-frame rounded-[1.8rem] p-[9px] shadow-stamp">
+              <div class="bg-cream-50 text-ink rounded-[1.3rem] overflow-hidden h-full flex flex-col">
+                <div class="relative">
+                  <img src="step-4-hodl.jpg" alt="calf with a money printer and dollar bills floating in the forest" class="w-full aspect-square object-cover" />
+                  <span class="absolute top-3 left-3 w-11 h-11 rounded-full bg-ink text-gold-400 font-display text-xl flex items-center justify-center ring-2 ring-gold-400">4</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col">
+                  <h3 class="font-display text-2xl leading-none">Milk the printer</h3>
+                  <p class="text-xs font-extrabold tracking-[0.16em] text-moss-600 uppercase mt-1">Swap ETH for $CASHCOW</p>
+                  <p class="mt-3 text-sm leading-relaxed text-ink/75 font-semibold">
+                    Swap your Robinhood ETH for $CASHCOW. Confirm the transaction. Then HODL tight and watch the cash flow.
+                  </p>
+                  <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy mt-4 rounded-full px-4 py-3 text-center text-base">Buy Now</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="relative bg-forest-950 py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <div>
+            <p class="font-extrabold tracking-[0.28em] text-gold-400 text-xs uppercase">Live pasture ticker</p>
+            <h2 class="font-display text-4xl sm:text-5xl mt-2 leading-none">$CASHCOW Chart</h2>
+            <p class="mt-2 text-cream-100/75">Dexscreener on Robinhood Chain. The printer, in real time.</p>
+          </div>
+          <a href="https://dexscreener.com/robinhood/0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-chart rounded-full px-6 py-3 text-base inline-flex items-center justify-center gap-2 w-fit">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M4 19V5m0 14h16M8 15l3-4 3 3 5-7"/></svg>
+            Open Chart
+          </a>
+        </div>
+
+        <div class="cow-frame rounded-[2rem] p-[10px] shadow-stamp">
+          <div class="rounded-[1.45rem] overflow-hidden bg-ink">
+            <iframe
+              title="Dexscreener $CASHCOW chart"
+              src="https://dexscreener.com/robinhood/0xb0bb214ec6c6c600d224c781339309a95f8e4811?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"
+              class="w-full h-[460px] md:h-[640px] border-0"
+              loading="lazy"
+              allow="clipboard-write"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERD -->
+    <section class="relative py-20 overflow-hidden">
+      <img src="banner.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center scale-105" />
+      <div class="absolute inset-0 bg-forest-950/75"></div>
+      <div class="relative max-w-3xl mx-auto px-4 text-center">
+        <img src="logo.png" alt="" class="w-24 h-24 mx-auto rounded-2xl object-cover ring-4 ring-gold-400 shadow-stamp" />
+        <h2 class="font-display text-4xl sm:text-6xl mt-6 leading-none">Join the herd</h2>
+        <p class="mt-4 text-lg text-cream-100/85">The bovine money printer on cash cow. HODL tight and watch the cash flow.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy rounded-full px-8 py-4 text-xl">Buy Now</a>
+          <a href="https://x.com/cashcowrobin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-cream-50 text-ink font-display px-8 py-4 text-xl hover:scale-[1.02] transition">
+            <img src="x.png" alt="" class="w-6 h-6" />
+            @cashcowrobin
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink text-cream-200 border-t-4 border-gold-400 pb-24 md:pb-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex flex-col md:flex-row gap-8 md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="" class="w-12 h-12 rounded-xl object-cover" />
+        <div>
+          <div class="font-display text-2xl text-cream-50 leading-none">CASH COW</div>
+          <div class="text-xs font-extrabold tracking-[0.2em] text-gold-400">$CASHCOW</div>
+        </div>
+      </div>
+      <p class="text-xs leading-relaxed max-w-xl text-cream-200/70">
+        $CASHCOW is a meme. Not financial advice, not a farm subsidy, not a promise.
+        Crypto is risky. Do your own research. HODL tight — or don’t. The cow will print either way.
+      </p>
+      <a href="https://x.com/cashcowrobin" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-cream-50 p-2 shrink-0" aria-label="X">
+        <img src="x.png" alt="" class="w-full h-full object-contain" />
+      </a>
+    </div>
+    <div class="border-t border-white/10 py-4 text-center text-[11px] font-bold tracking-wide text-cream-200/50">
+      © 2026 CASH COW · The bovine money printer on cash cow
+    </div>
+  </footer>
+
+  <!-- mobile sticky CTA -->
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-gradient-to-t from-forest-950 via-forest-950/95 to-transparent">
+    <div class="flex gap-2">
+      <button type="button" onclick="copyCA()" class="flex-1 rounded-full bg-ink border border-cream-200/20 text-cream-50 font-extrabold py-3 text-sm">
+        Copy CA
+      </button>
+      <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0xb0bb214ec6c6c600d224c781339309a95f8e4811" target="_blank" rel="noopener noreferrer" class="btn-buy flex-[1.4] rounded-full py-3 text-center text-base">Buy Now</a>
+    </div>
+  </div>
+
+  <script>
+    const CA = "0xb0bb214ec6c6c600d224c781339309a95f8e4811";
+
+    function toast(msg) {
+      const el = document.getElementById("toast");
+      el.querySelector("[data-toast-msg]").textContent = msg;
+      el.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+    }
+
+    async function copyCA() {
+      try {
+        await navigator.clipboard.writeText(CA);
+        toast(CA === "0xb0bb214ec6c6c600d224c781339309a95f8e4811" ? "0xb0bb214ec6c6c600d224c781339309a95f8e4811 copied. Printer is warming up." : "CA copied. Go feed the cow.");
+      } catch (err) {
+        toast("Copy failed. Select the CA and copy it.");
+      }
+    }
+
+    function moo() {
+      toast("MOOOOO.");
+    }
+
+    const nav = document.getElementById("nav");
+    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+    mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+  </script>
+</body>
+</html>
